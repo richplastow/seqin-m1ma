@@ -42,16 +42,27 @@ body {
 </head>
 <body>
 
-<h1><a href="../index.html">Monty1MathSeqin</a></h1>
+<h1><a href="../index.html">Monty1MathSeqin 0.0.2 Test</a></h1>
 
 <div id="mocha"></div>
 
 <script>
-mocha.setup('bdd');
+mocha.setup('bdd')
+window.TestClassName = 'Monty1MathSeqin'
+window.TestMeta = {
+//// This has been copy-pasted from the main script:
+    NAME:    { value:'Monty1MathSeqin' }
+  , ID:      { value:'m1ma'            }
+  , VERSION: { value:'0.0.2'           }
+  , SPEC:    { value:'20170705'        }
+  , HELP:    { value:
+`Monty’s first (experimental) mathematical Seqin. @TODO description` }
+}
 </script>
 
-<script src="test-isomorphic.js"></script>
-<script src="test-browser.js"></script>
+<script src="https://rawgit.com/loopdotcoop/seqin/master/support/test-common-isomorphic.js"></script>
+<script src="https://rawgit.com/loopdotcoop/seqin/master/support/test-common-browser.js"></script>
+<script src="test-specific-browser.js"></script>
 
 <script>
 mocha.run();

@@ -5,7 +5,7 @@
 const META = {
     NAME:    { value:'Monty1MathSeqin' }
   , ID:      { value:'m1ma'            }
-  , VERSION: { value:'0.0.1'           }
+  , VERSION: { value:'0.0.2'           }
   , SPEC:    { value:'20170705'        }
   , HELP:    { value:
 `Monty’s first (experimental) mathematical Seqin. @TODO description` }
@@ -23,9 +23,23 @@ if (! SEQIN.MathSeqin) throw new Error('The base SEQIN.MathSeqin class does not 
 SEQIN.Monty1MathSeqin = class extends SEQIN.MathSeqin {
 
     constructor (config) {
-
+        super(config)
     }
 
+
+    getBuffers(config) {
+
+        //// Validate config and get empty buffers.
+        const buffers = super.getBuffers(config) //@TODO something like super.super, to just get seqin-si’s empty buffers
+
+        ////@TODO generate experimental mathematical sound
+        buffers.map( buffer => {
+            buffer.id = 'm1ma'
+        })
+
+        return buffers
+
+    }
 }
 
 
