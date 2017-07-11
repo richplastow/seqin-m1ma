@@ -2,15 +2,15 @@
 //// You’ll need to install mocha and chai first.
 
 //// Define `TestClassName` and `TestMeta` for './test-common-isomorphic.js'.
-global.TestClassName = 'Monty1MathSeqin'
+global.TestClassName = 'Rich1MathSeqin'
 global.TestMeta = {
 //// This has been copy-pasted from the main script:
-    NAME:    { value:'Monty1MathSeqin' }
-  , ID:      { value:'m1ma'            }
-  , VERSION: { value:'0.0.2'           }
+    NAME:    { value:'Rich1MathSeqin' }
+  , ID:      { value:'r1ma'            }
+  , VERSION: { value:'0.0.1'           }
   , SPEC:    { value:'20170705'        }
   , HELP:    { value:
-`Monty’s first (experimental) mathematical Seqin. @TODO description` }
+`Rich’s first (experimental) mathematical Seqin. @TODO description` }
 }
 
 //// Load Seqin dependencies.

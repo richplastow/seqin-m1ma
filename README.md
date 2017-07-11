@@ -1,6 +1,6 @@
-# Monty1MathSeqin
+# Rich1MathSeqin
 
-#### Monty’s first (experimental) mathematical Seqin.
+#### Rich’s first (experimental) mathematical Seqin.
 
 @TODO description.
 
@@ -9,9 +9,9 @@ Authors
 -------
 Built by Rich Plastow and Monty Anderson for Loop.Coop.
 
-+ __Homepage:__     [loopdotcoop.github.io/seqin-m1ma/](https://loopdotcoop.github.io/seqin-m1ma/)
-+ __GitHub:__       [loopdotcoop/seqin-m1ma](https://github.com/loopdotcoop/seqin-m1ma)
-+ __NPM:__          [seqin-m1ma](https://www.npmjs.com/package/seqin-m1ma)
++ __Homepage:__     [richplastow.com/seqin-r1ma/](http://richplastow.com/seqin-r1ma/)
++ __GitHub:__       [richplastow/seqin-r1ma](https://github.com/richplastow/seqin-r1ma)
++ __NPM:__          [seqin-r1ma](https://www.npmjs.com/package/seqin-r1ma)
 + __Twitter:__      [@loopdotcoop](https://twitter.com/loopdotcoop)
 + __Location:__     Brighton, UK
 
@@ -19,7 +19,7 @@ Built by Rich Plastow and Monty Anderson for Loop.Coop.
 App
 ---
 + __Last update:__  2017/07/11
-+ __Version:__      0.0.2
++ __Version:__      0.0.1
 
 
 Tested
@@ -33,5 +33,4 @@ Tested
 
 Changelog
 ---------
-+ 0.0.1       Initial commit on master branch; isomorphic mocha/chai working
-+ 0.0.2       Extends MathSynth 0.0.2
++ 0.0.1       Renamed after fork from Monty1MathSeqin

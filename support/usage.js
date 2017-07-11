@@ -5,7 +5,7 @@ const
     d = document
   , $ = (s) => d.querySelector.call(d, s)
 
-let $out, $canvas, canvasCtx, audioCtx, monty1MathSeqin
+let $out, $canvas, canvasCtx, audioCtx, Rich1MathSeqin
 
 ROOT.usage = {
 
@@ -22,7 +22,7 @@ ROOT.usage = {
 
         //// Set up audio.
         audioCtx = new AudioContext()
-        monty1MathSeqin = new SEQIN.Monty1MathSeqin({
+        Rich1MathSeqin = new SEQIN.Rich1MathSeqin({
             audioContext: audioCtx
           , sharedCache: {}
           , samplesPerBuffer: 900
@@ -45,7 +45,7 @@ ROOT.usage = {
         $button.onclick = () => {
 
             //// Generate the note.
-            const buffers = monty1MathSeqin.getBuffers({
+            const buffers = Rich1MathSeqin.getBuffers({
                 bufferCount: 1
               , cyclesPerBuffer: config.cyclesPerBuffer
               , isLooping: false

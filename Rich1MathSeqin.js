@@ -3,12 +3,12 @@
 
 //// Standard metadata about this Seqin.
 const META = {
-    NAME:    { value:'Monty1MathSeqin' }
-  , ID:      { value:'m1ma'            }
-  , VERSION: { value:'0.0.2'           }
+    NAME:    { value:'Rich1MathSeqin' }
+  , ID:      { value:'r1ma'            }
+  , VERSION: { value:'0.0.1'           }
   , SPEC:    { value:'20170705'        }
   , HELP:    { value:
-`Monty’s first (experimental) mathematical Seqin. @TODO description` }
+`Rich’s first (experimental) mathematical Seqin. @TODO description` }
 }
 
 
@@ -20,7 +20,7 @@ if (! SEQIN.MathSeqin) throw new Error('The base SEQIN.MathSeqin class does not 
 
 
 //// Define the main class.
-SEQIN.Monty1MathSeqin = class extends SEQIN.MathSeqin {
+SEQIN.Rich1MathSeqin = class extends SEQIN.MathSeqin {
 
     constructor (config) {
         super(config)
@@ -34,7 +34,7 @@ SEQIN.Monty1MathSeqin = class extends SEQIN.MathSeqin {
 
         ////@TODO generate experimental mathematical sound
         buffers.map( buffer => {
-            buffer.id = 'm1ma'
+            buffer.id = 'r1ma'
         })
 
         return buffers
@@ -44,7 +44,7 @@ SEQIN.Monty1MathSeqin = class extends SEQIN.MathSeqin {
 
 
 //// Add static constants to the main class.
-Object.defineProperties(SEQIN.Monty1MathSeqin, META)
+Object.defineProperties(SEQIN.Rich1MathSeqin, META)
 
 
 }( 'object' === typeof window ? window : global )
