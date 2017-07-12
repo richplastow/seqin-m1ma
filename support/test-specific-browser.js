@@ -48,7 +48,7 @@ describe(`Test specific browser '${ROOT.TestClassName}'`, () => {
                 const hash = asmCrypto.SHA256.hex( new Uint8Array(channelData.buffer) )
                 eq(
                     hash
-                  , 'd3532b0f58880750fecf653f853b14071f5486c5334d12321f108d25ad8f1095'
+                  , '7ba35a6aca885b6126b2f9ecc06bfc3b0cd43631f996fb0d8170f3f5b5a32b7f'
                   , `buffers[${i}].data.getChannelData(0) has incorrect hash`
                 )
 

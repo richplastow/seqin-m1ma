@@ -7,7 +7,7 @@ global.TestMeta = {
 //// This has been copy-pasted from the main script:
     NAME:    { value:'Rich1MathSeqin' }
   , ID:      { value:'r1ma'            }
-  , VERSION: { value:'0.0.1'           }
+  , VERSION: { value:'0.0.3'           }
   , SPEC:    { value:'20170705'        }
   , HELP:    { value:
 `Rich’s first (experimental) mathematical Seqin. @TODO description` }

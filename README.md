@@ -19,7 +19,7 @@ Built by Rich Plastow and Monty Anderson for Loop.Coop.
 App
 ---
 + __Last update:__  2017/07/11
-+ __Version:__      0.0.1
++ __Version:__      0.0.3
 
 
 Tested
@@ -34,3 +34,5 @@ Tested
 Changelog
 ---------
 + 0.0.1       Renamed after fork from Monty1MathSeqin
++ 0.0.2       Basic sine wave
++ 0.0.3       Improved support/usage.html style and functionality
