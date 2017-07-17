@@ -1,17 +1,15 @@
 {
   "name": "seqin-r1ma",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Rich’s first (experimental) mathematical Seqin",
   "main": "Rich1MathSeqin.js",
   "directories": {
     "example": "support"
   },
   "dependencies": {
-    "seqin-ma": "^0.0.3"
+    "seqin-ma": "^0.0.5"
   },
   "devDependencies": {
-    "chai": "^4.0.2",
-    "mocha": "^3.4.2"
   },
   "scripts": {
     "test": "mocha support/test.js"
@@ -29,7 +27,10 @@
     "math",
     "maths"
   ],
-  "author": "Rich Plastow<rich@loop.coop>, Monty Anderson<monty.linux@gmail.com>",
+  "author": "Rich Plastow <rich@loop.coop> (http://loop.coop/)",
+  "contributors": [
+    "Monty Anderson <monty.linux@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/richplastow/seqin-r1ma/issues"

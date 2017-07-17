@@ -4,9 +4,9 @@
 //// Standard metadata about this Seqin.
 const META = {
     NAME:    { value:'Rich1MathSeqin' }
-  , ID:      { value:'r1ma'            }
-  , VERSION: { value:'0.0.3'           }
-  , SPEC:    { value:'20170705'        }
+  , ID:      { value:'r1ma'           }
+  , VERSION: { value:'0.0.4'          }
+  , SPEC:    { value:'20170705'       }
   , HELP:    { value:
 `Rich’s first (experimental) mathematical Seqin. @TODO description` }
 }
@@ -27,52 +27,58 @@ SEQIN.Rich1MathSeqin = class extends SEQIN.MathSeqin {
     }
 
 
-    getBuffers(config) {
+    _buildBuffers(config, resolve, reject) {
 
-        //// Validate config and get empty buffers.
-        const buffers = super.getBuffers(config)
+        //// Get empty buffers.
+        super._buildBuffers(config, buffers => {
 
-        const samplesPerCycle = this.samplesPerBuffer / config.cyclesPerBuffer
+            const samplesPerCycle = this.samplesPerBuffer / config.cyclesPerBuffer
 
-        //// MathSeqin notes are built from a single waveform. Its ID is:
-        const waveId =
-            'r1ma_'             // universally unique ID for Rich1MathSeqin
-          + 'w_'                // denotes a single waveform-cycle
-          + 'l'+samplesPerCycle // length of the waveform-cycle in sample-frames
+            //// Rich1MathSeqin notes are built from a single waveform.
+            const singleWaveformId =
+                'r1ma'                 // universally unique ID for Rich1MathSeqin
+              + '_sw'                  // denotes a single-waveform cycle
+              + '_s'+this.sampleRate   // sample-frames per second
+              + '_c'+this.channelCount // number of channels
+              + '_l'+samplesPerCycle   // length of the waveform-cycle in sample-frames
 
-        //// No cached wave? Generate it!
-        let waveBuffer = this.sharedCache[waveId]
-        if (! waveBuffer) {
-            waveBuffer = this.sharedCache[waveId] = this.audioContext.createBuffer(
-                this.channelCount // numOfChannels
-              , samplesPerCycle   // length
-              , this.sampleRate   // sampleRate
-            )
-            if (config.meta) waveBuffer.meta = config.meta //@TODO should be at seqin-si level
-            const f = Math.PI * 2 * config.cyclesPerBuffer / this.samplesPerBuffer
-            for (let channel=0; channel<this.channelCount; channel++) {
-                const waveChannelBuffer = waveBuffer.getChannelData(channel)
-                for (let i=0; i<samplesPerCycle; i++) {
-                    waveChannelBuffer[i] = Math.sin(i * f)
+            //// No cached single-waveform? Generate it!
+            let singleWaveform = this.sharedCache[singleWaveformId]
+            if (! singleWaveform) {
+                singleWaveform = this.sharedCache[singleWaveformId] = this.audioContext.createBuffer(
+                    this.channelCount // numOfChannels
+                  , samplesPerCycle   // length
+                  , this.sampleRate   // sampleRate
+                )
+                if (config.meta) singleWaveform.meta = config.meta //@TODO should be at seqin-si level
+                const f = Math.PI * 2 * config.cyclesPerBuffer / this.samplesPerBuffer
+                for (let channel=0; channel<this.channelCount; channel++) {
+                    const singleWaveformChannel = singleWaveform.getChannelData(channel)
+                    for (let i=0; i<samplesPerCycle; i++) {
+                        singleWaveformChannel[i] = Math.sin(i * f)
+                    }
                 }
             }
-        }
 
-        //// Create the wave from the cached wave.
-        buffers.map( buffer => {
-            buffer.id = 'r1ma'
-            for (let channel=0; channel<this.channelCount; channel++) {
-                const waveChannelBuffer = waveBuffer.getChannelData(channel)
-                const outChannelBuffer = buffer.data.getChannelData(channel)
-                for (let i=0; i<this.samplesPerBuffer; i++) {
-                    outChannelBuffer[i] = waveChannelBuffer[i % samplesPerCycle]
+            //// Create the complete audio by repeating the cached single-waveform.
+            buffers.map( buffer => {
+                buffer.id = 'r1ma'
+                for (let channel=0; channel<this.channelCount; channel++) {
+                    const singleWaveformChannel = singleWaveform.getChannelData(channel)
+                    const outChannelBuffer = buffer.data.getChannelData(channel)
+                    for (let i=0; i<this.samplesPerBuffer; i++) {
+                        outChannelBuffer[i] = singleWaveformChannel[i % samplesPerCycle]
+                    }//@TODO find a faster technique for duplicating audio
                 }
-            }
+            })
+
+            //// Return the filled buffers.
+            resolve(buffers)
         })
 
-        return buffers
-    }
-}
+    }//_buildBuffers()
+
+}//Rich1MathSeqin
 
 
 //// Add static constants to the main class.
