@@ -1,6 +1,6 @@
 {
   "name": "seqin-r1ma",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Rich’s first (experimental) mathematical Seqin",
   "main": "Rich1MathSeqin.js",
   "directories": {

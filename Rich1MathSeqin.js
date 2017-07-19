@@ -5,7 +5,7 @@
 const META = {
     NAME:    { value:'Rich1MathSeqin' }
   , ID:      { value:'r1ma'           }
-  , VERSION: { value:'0.0.4'          }
+  , VERSION: { value:'0.0.5'          }
   , SPEC:    { value:'20170705'       }
   , HELP:    { value:
 `Rich’s first (experimental) mathematical Seqin. @TODO description` }
