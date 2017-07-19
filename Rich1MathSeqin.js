@@ -5,7 +5,7 @@
 const META = {
     NAME:    { value:'Rich1MathSeqin' }
   , ID:      { value:'r1ma'           }
-  , VERSION: { value:'0.0.5'          }
+  , VERSION: { value:'0.0.6'          }
   , SPEC:    { value:'20170705'       }
   , HELP:    { value:
 `Rich’s first (experimental) mathematical Seqin. @TODO description` }
@@ -27,10 +27,10 @@ SEQIN.Rich1MathSeqin = class extends SEQIN.MathSeqin {
     }
 
 
-    _buildBuffers(config, resolve, reject) {
+    _buildBuffers(config) {
 
         //// Get empty buffers.
-        super._buildBuffers(config, buffers => {
+        return super._buildBuffers(config).then( buffers => {
 
             const samplesPerCycle = this.samplesPerBuffer / config.cyclesPerBuffer
 
@@ -73,7 +73,7 @@ SEQIN.Rich1MathSeqin = class extends SEQIN.MathSeqin {
             })
 
             //// Return the filled buffers.
-            resolve(buffers)
+            return Promise.resolve(buffers)
         })
 
     }//_buildBuffers()

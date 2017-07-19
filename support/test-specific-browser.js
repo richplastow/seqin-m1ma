@@ -9,6 +9,7 @@ const
     a         = chai.assert
   , expect    = chai.expect
   , eq        = a.strictEqual
+  , ok        = a.isOk
   , fail      = a.fail
 
     //// To test a `Seqin` subclass called `MyGreatSeqin`, you should have set:
@@ -36,6 +37,7 @@ describe(`Test specific browser '${ROOT.TestClassName}'`, () => {
               , isLooping:       true
               , events:          []
             }).then( buffers => {
+                ok(Array.isArray(buffers), `buffers is ${typeof buffers} not an array` )
                 buffers.forEach( (buffer,i) => {
                     eq( buffer.id, 'r1ma', `buffers[${i}].id is incorrect` )
                     const channelDataL = buffer.data.getChannelData(0)

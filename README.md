@@ -19,7 +19,7 @@ Built by Rich Plastow and Monty Anderson for Loop.Coop.
 App
 ---
 + __Last update:__  2017/07/19
-+ __Version:__      0.0.5
++ __Version:__      0.0.6
 
 
 Tested
@@ -38,3 +38,4 @@ Changelog
 + 0.0.3       Improved support/usage.html style and functionality
 + 0.0.4       Brought in line with MathSeqin 0.0.5
 + 0.0.5       support/usage.html uses Seqinalysis
++ 0.0.6       Better use of Promises
