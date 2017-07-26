@@ -18,8 +18,8 @@ Built by Rich Plastow and Monty Anderson for Loop.Coop.
 
 App
 ---
-+ __Last update:__  2017/07/19
-+ __Version:__      0.0.7
++ __Last update:__  2017/07/26
++ __Version:__      0.0.8
 
 
 Tested
@@ -40,3 +40,4 @@ Changelog
 + 0.0.5       support/usage.html uses Seqinalysis
 + 0.0.6       Better use of Promises
 + 0.0.7       Applies ADSR to an ‘oscillation’ to produce a ‘gainEnvelopeBuffer’
+- 0.0.8       Move buildBuffers() etc to MathSeqin; fully Promise-based
