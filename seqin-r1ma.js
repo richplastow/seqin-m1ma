@@ -1,12 +1,10 @@
 !function (ROOT) { 'use strict'
 
-
-//// Standard metadata about this Seqin.
 const META = {
     NAME:    { value:'Rich1MathSeqin' }
   , ID:      { value:'r1ma'           }
-  , VERSION: { value:'0.0.8'          }
-  , SPEC:    { value:'20170705'       }
+  , VERSION: { value:'1.0.0'          }
+  , SPEC:    { value:'20170728'       }
   , HELP:    { value:
 `Rich’s first (experimental) mathematical Seqin. @TODO description` }
 }
@@ -20,11 +18,7 @@ if (! SEQIN.MathSeqin) throw new Error('The base SEQIN.MathSeqin class does not 
 
 
 //// Define the main class.
-SEQIN.Rich1MathSeqin = class extends SEQIN.MathSeqin {
-
-    constructor (config) {
-        super(config)
-    }
+SEQIN.Rich1MathSeqin = class Rich1MathSeqin extends SEQIN.MathSeqin {
 
 }
 

@@ -12,12 +12,20 @@ const
   , ok        = a.isOk
   , fail      = a.fail
 
-    //// To test a `Seqin` subclass called `MyGreatSeqin`, you should have set:
-    //// window.TestClassName = 'MyGreatSeqin'
-  , TestClass = SEQIN[ROOT.TestClassName]
+    //// To test a `Seqin` sub-class called `MyGreatSeqin`, you should have set:
+    //// window.TestMeta = { // replace `window` with `global` for Node.js
+    ////     NAME:    { value:'MyGreatSeqin' }
+    ////   , ID:      { value:'mygt'       }
+    ////   , VERSION: { value:'1.2.3'    }
+    ////   , SPEC:    { value:'20170728' }
+    ////   , HELP:    { value: 'This is literally the best Seqin ever made!' }
+    //// }
+  , TestMeta = ROOT.TestMeta
+  , TestClassName = TestMeta.NAME.value
+  , TestClass = SEQIN[TestClassName]
 
 
-describe(`Test specific browser '${ROOT.TestClassName}'`, () => {
+describe(`Test specific browser '${TestClassName}'`, () => {
 
 	describe('perform() response', () => {
         const ctx = new (ROOT.AudioContext||ROOT.webkitAudioContext)()
@@ -39,7 +47,7 @@ describe(`Test specific browser '${ROOT.TestClassName}'`, () => {
             }).then( buffers => {
                 ok(Array.isArray(buffers), `buffers is ${typeof buffers} not an array` )
                 buffers.forEach( (buffer,i) => {
-                    eq( buffer.id, 'r1ma', `buffers[${i}].id is incorrect` )
+                    eq( buffer.id, undefined, `buffers[${i}].id should not exist` )
                     const channelDataL = buffer.data.getChannelData(0)
                     const channelDataR = buffer.data.getChannelData(1)
                     // if (0 == i) {
@@ -53,18 +61,19 @@ describe(`Test specific browser '${ROOT.TestClassName}'`, () => {
                     eq(channelDataR.length, 2340, `buffers[${i}].data.getChannelData(1) (right channel) has wrong length`)
                     eq(
                         asmCrypto.SHA256.hex( new Uint8Array(channelDataL.buffer) )
-                      , '7ba35a6aca885b6126b2f9ecc06bfc3b0cd43631f996fb0d8170f3f5b5a32b7f'
+                      , 'd3532b0f58880750fecf653f853b14071f5486c5334d12321f108d25ad8f1095'
                       , `buffers[${i}].data.getChannelData(0) (left channel) has incorrect hash`
                     )
                     eq(
                         asmCrypto.SHA256.hex( new Uint8Array(channelDataR.buffer) )
-                      , '7ba35a6aca885b6126b2f9ecc06bfc3b0cd43631f996fb0d8170f3f5b5a32b7f'
+                      , 'd3532b0f58880750fecf653f853b14071f5486c5334d12321f108d25ad8f1095'
                       , `buffers[${i}].data.getChannelData(1) (right channel) has incorrect hash`
                     )
 
                     // console.log(i, 'left' , asmCrypto.SHA256.hex( new Uint8Array(channelDataL.buffer) ))
                     // console.log(i, 'right', asmCrypto.SHA256.hex( new Uint8Array(channelDataR.buffer) ))
                 })
+/*
                 for (let id in cache) {
                     if ('r1ma_sw_s23400_c2_l10' === id) {
                         const channelDataL = cache[id].getChannelData(0)
@@ -90,6 +99,7 @@ describe(`Test specific browser '${ROOT.TestClassName}'`, () => {
                         fail('no unexpected id', id, `Found unexpected id '${id}' in the cache`)
                     }
                 }
+*/
             })
     	})
 
